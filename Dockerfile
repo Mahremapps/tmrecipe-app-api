@@ -8,9 +8,10 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
+# Set up Python environment
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
-    /py/bin/pip install -r /tmp/requirements.txt --use-pep517 && \
+    /py/bin/pip install -r /tmp/requirements.txt && \
     rm -rf /tmp && \
     adduser \
         --disabled-password \
